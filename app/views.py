@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, request, redirect, url_for, flash
-
+from datetime import datetime
 
 ###
 # Routing for your application.
@@ -45,3 +45,18 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+
+@app.route('/profile/')
+def profile():
+    """Render website's home page."""
+     # Example date you created the profile page
+    date_created = datetime(2021, 2, 1)
+    formatted_date = format_date_joined(date_created)
+    
+    # Pass the formatted date to the template
+    return render_template('profile.html',join_date=formatted_date)
+
+def format_date_joined(date):
+    """ Function to format a datetime object to 'Month, Year' """
+    return date.strftime('%b, %Y')

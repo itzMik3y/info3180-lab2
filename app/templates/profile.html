@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+{% endblock %}
+
+{% block main %}
+<div class="profile-card">
+    <div class="profile-header">
+        <img src="{{ url_for('static', filename='profile.png') }}" alt="Michael Webb" class="profile-picture">
+        <h1>Michael Webb</h1>
+        <p class="username">@mwebb</p>
+        <p class="location">Kingston, Jamaica</p>
+        <p class="join-date">Joined {{ join_date }}</p>
+    </div>
+    <div class="profile-bio">
+        <p>I am smart and talented young man who loves website design and development. Contact me if you'd like to work together on a new project.</p>
+    </div>
+    <div class="profile-stats">
+        <div class="stat">
+            <span class="number">7</span>
+            <span class="stat-name">Posts</span>
+        </div>
+        <div class="stat">
+            <span class="number">100</span>
+            <span class="stat-name">Following</span>
+        </div>
+        <div class="stat">
+            <span class="number">250</span>
+            <span class="stat-name">Followers</span>
+        </div>
+    </div>
+    <button class="follow-btn">Follow</button>
+</div>
+{% endblock %}
